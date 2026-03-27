@@ -46,6 +46,7 @@
   .activity-form-toolbar {
     flex-direction: column;
     align-items: stretch;
+    padding: var(--spacing-md);
   }
 
   .activity-form-toggle {
@@ -54,6 +55,6 @@
   }
 
   .activity-form-shell {
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    padding: 0 var(--spacing-md) var(--spacing-md);
   }
 }

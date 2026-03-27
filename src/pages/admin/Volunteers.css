@@ -76,6 +76,9 @@
   font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
+  gap: 0.75rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .profile-section p strong {
@@ -243,11 +246,24 @@
     padding: 1rem;
   }
 
+  .search-bar {
+    padding: 0.75rem;
+  }
+
+  .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .volunteers-table {
     overflow-x: auto;
   }
 
   .volunteers-table table {
-    min-width: 700px;
+    min-width: 620px;
   }
 }

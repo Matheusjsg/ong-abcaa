@@ -166,6 +166,10 @@
     padding: 1rem;
   }
 
+  .reports-card {
+    padding: 1rem;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
@@ -183,6 +187,10 @@
 
   .activities-table {
     font-size: 0.875rem;
+  }
+
+  .activities-table table {
+    min-width: 520px;
   }
 
   .stat-card {

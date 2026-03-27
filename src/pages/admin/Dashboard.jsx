@@ -7,6 +7,8 @@ const AdminDashboard = () => {
   const { user } = useAuth();
 
   return (
+    <>
+    <Sidebar />
     <div className="container">
       <div className="content">
         <div className="welcome-card">
@@ -55,9 +57,11 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      <Sidebar />
+      
       <Footer />
     </div>
+    
+    </>
   );
 };
 

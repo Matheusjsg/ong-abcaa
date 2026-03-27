@@ -148,6 +148,10 @@
     padding: 1rem;
   }
 
+  .approvals-card {
+    padding: 1rem;
+  }
+
   .filter-tabs {
     flex-direction: column;
   }
@@ -161,11 +165,19 @@
   }
 
   .activities-table table {
-    min-width: 800px;
+    min-width: 640px;
   }
 
   .description-cell {
     max-width: 150px;
+  }
+
+  .approval-details-inline {
+    padding: 1rem;
+  }
+
+  .approval-details-grid {
+    grid-template-columns: 1fr;
   }
 }
 

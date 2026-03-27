@@ -45,6 +45,10 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .activity-form-card {
+    padding: var(--spacing-md);
+  }
+
   .form-actions {
     flex-direction: column;
   }

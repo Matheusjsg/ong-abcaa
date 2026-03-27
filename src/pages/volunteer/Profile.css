@@ -65,10 +65,6 @@
     padding: 1rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
   .profile-card {
     padding: 1.5rem;
   }
