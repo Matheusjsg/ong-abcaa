@@ -116,6 +116,7 @@ const Activities = () => {
 
   return (
     <div className="container">
+      <Sidebar />
       <div className="content">
         <h1>Minhas Atividades</h1>
         <p className="subtitle">Registre e acompanhe suas atividades de voluntariado</p>
@@ -168,7 +169,6 @@ const Activities = () => {
           />
         )}
       </div>
-      <Sidebar />
       <Footer />
     </div>
   );

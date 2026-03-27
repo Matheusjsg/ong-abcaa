@@ -7,9 +7,8 @@ const AdminDashboard = () => {
   const { user } = useAuth();
 
   return (
-    <>
-    <Sidebar />
     <div className="container">
+      <Sidebar />
       <div className="content">
         <div className="welcome-card">
           <h1>Bem-vindo, {user?.name}! 👋</h1>
@@ -56,12 +55,8 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-
-      
       <Footer />
     </div>
-    
-    </>
   );
 };
 

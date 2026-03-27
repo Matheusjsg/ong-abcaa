@@ -26,5 +26,6 @@
   .footer {
     left: 0;
     position: static;
+    margin-top: var(--spacing-lg);
   }
 }

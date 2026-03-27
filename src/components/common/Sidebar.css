@@ -257,7 +257,8 @@
   .sidebar {
     width: 100%;
     height: auto;
-    position: relative;
+    position: sticky;
+    top: 0;
     bottom: auto;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
   }
