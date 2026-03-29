@@ -95,6 +95,12 @@ const Login = () => {
             />
           </div>
 
+          <div className="auth-actions">
+            <Link to="/forgot-password" className="auth-inline-link">
+              Esqueceu sua senha?
+            </Link>
+          </div>
+
           <button 
             type="submit" 
             disabled={loading} 

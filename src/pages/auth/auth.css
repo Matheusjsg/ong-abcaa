@@ -57,6 +57,24 @@
   justify-content: center;
 }
 
+.auth-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(var(--spacing-lg) * -0.5);
+  margin-bottom: var(--spacing-lg);
+}
+
+.auth-inline-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.auth-inline-link:hover {
+  text-decoration: underline;
+}
+
 .auth-footer {
   text-align: center;
   padding-top: var(--spacing-lg);

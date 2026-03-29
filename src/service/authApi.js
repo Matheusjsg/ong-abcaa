@@ -57,3 +57,61 @@ export const register = async (userData) => {
     throw error;
   }
 };
+
+/**
+ * Solicita o envio do email de recuperação de senha
+ * @param {string} email - Email do usuário
+ * @returns {Promise<string>} Mensagem de sucesso
+ */
+export const forgotPassword = async (email) => {
+  try {
+    const body = new URLSearchParams({ email });
+
+    const response = await fetch(`${authAPI}/forgot-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body
+    });
+
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      throw new Error(responseText || 'Erro ao solicitar recuperação de senha');
+    }
+
+    return responseText;
+  } catch (error) {
+    console.error('Erro ao solicitar recuperação de senha:', error);
+    throw error;
+  }
+};
+
+/**
+ * Redefine a senha do usuário a partir de um token
+ * @param {Object} data - Dados para redefinição
+ * @param {string} data.token - Token de recuperação
+ * @param {string} data.password - Nova senha
+ * @returns {Promise<string>} Mensagem de sucesso
+ */
+export const resetPassword = async ({ token, password }) => {
+  try {
+    const body = new URLSearchParams({ token, password });
+
+    const response = await fetch(`${authAPI}/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body
+    });
+
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      throw new Error(responseText || 'Erro ao redefinir senha');
+    }
+
+    return responseText;
+  } catch (error) {
+    console.error('Erro ao redefinir senha:', error);
+    throw error;
+  }
+};

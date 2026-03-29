@@ -13,6 +13,8 @@ import App from './App.jsx';
 // Páginas de Autenticação
 import Login from './pages/auth/Login.jsx';
 import Register from './pages/auth/Register.jsx';
+import ForgotPassword from './pages/auth/ForgotPassword.jsx';
+import ResetPassword from './pages/auth/ResetPassword.jsx';
 
 // Páginas do Volunteer
 import VolunteerDashboard from './pages/volunteer/Dashboard.jsx';
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPassword />
+  },
+  {
+    path: '/reset-password',
+    element: <ResetPassword />
   },
 
   // Rota raiz (redireciona baseado no tipo de usuário)
