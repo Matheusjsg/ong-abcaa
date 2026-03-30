@@ -5,6 +5,7 @@ import { register as registerAPI } from '../../service/authApi';
 import { fetchDepartments } from '../../service/departmentApi';
 import { validateEmail } from '../../utils/validators';
 import { toast } from 'react-toastify';
+import logo from '../../assets/logo.png';
 import './auth.css';
 
 const Register = () => {
@@ -121,6 +122,7 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
+        <img src={logo} alt="ABCAA Logo" className="auth-logo" />
         <div className="auth-header">
           <h1>Criar Conta</h1>
           <p>Registre-se no Sistema ABCAA</p>

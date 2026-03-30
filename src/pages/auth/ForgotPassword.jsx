@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { forgotPassword as forgotPasswordAPI } from '../../service/authApi';
 import { validateEmail } from '../../utils/validators';
+import logo from '../../assets/logo.png';
 import './auth.css';
 
 const ForgotPassword = () => {
@@ -33,6 +34,7 @@ const ForgotPassword = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
+        <img src={logo} alt="ABCAA Logo" className="auth-logo" />
         <div className="auth-header">
           <h1>Recuperar Senha</h1>
           <p>Informe seu email para receber o link de redefinição</p>

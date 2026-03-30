@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { resetPassword as resetPasswordAPI } from '../../service/authApi';
+import logo from '../../assets/logo.png';
 import './auth.css';
 
 const ResetPassword = () => {
@@ -70,6 +71,7 @@ const ResetPassword = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
+        <img src={logo} alt="ABCAA Logo" className="auth-logo" />
         <div className="auth-header">
           <h1>Redefinir Senha</h1>
           <p>Cadastre uma nova senha para acessar sua conta</p>

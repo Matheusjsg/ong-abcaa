@@ -3,7 +3,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { login as loginAPI } from '../../service/authApi';
 import { toast } from 'react-toastify';
+import logo from '../../assets/logo.png';
 import './auth.css';
+
 
 const Login = () => {
   // Estado do formulário
@@ -64,6 +66,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
+        <img src={logo} alt="ABCAA Logo" className="auth-logo" />
         <div className="auth-header">
           <h1>Sistema ABCAA</h1>
           <p>Faça login para continuar</p>
