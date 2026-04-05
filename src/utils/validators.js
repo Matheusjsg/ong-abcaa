@@ -18,8 +18,8 @@ export const validateEmail = (email) => {
 export const validateCPF = (cpf) => {
   if (!cpf) return true; // CPF é opcional
   
-  const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-  return regex.test(cpf);
+  const digitsOnly = cpf.replace(/\D/g, '');
+  return digitsOnly.length === 11;
 };
 
 /**
@@ -30,8 +30,8 @@ export const validateCPF = (cpf) => {
 export const validatePhone = (phone) => {
   if (!phone) return true; // Telefone é opcional
   
-  const regex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
-  return regex.test(phone);
+  const digitsOnly = phone.replace(/\D/g, '');
+  return digitsOnly.length === 10 || digitsOnly.length === 11;
 };
 
 /**
@@ -42,8 +42,8 @@ export const validatePhone = (phone) => {
 export const validateZipCode = (zipCode) => {
   if (!zipCode) return true; // CEP é opcional
   
-  const regex = /^\d{5}-\d{3}$/;
-  return regex.test(zipCode);
+  const digitsOnly = zipCode.replace(/\D/g, '');
+  return digitsOnly.length === 8;
 };
 
 /**
@@ -67,8 +67,22 @@ export const validateDuration = (minutes) => {
  */
 export const validateDescription = (description, minLength = 10, maxLength = 500) => {
   if (!description) return false;
-  
+
   const trimmed = description.trim();
+  return trimmed.length >= minLength && trimmed.length <= maxLength;
+};
+
+/**
+ * Valida um título
+ * @param {string} title - Título a ser validado
+ * @param {number} minLength - Tamanho mínimo
+ * @param {number} maxLength - Tamanho máximo
+ * @returns {boolean} true se válido, false caso contrário
+ */
+export const validateTitle = (title, minLength = 10, maxLength = 75) => {
+  if (!title) return false;
+
+  const trimmed = title.trim();
   return trimmed.length >= minLength && trimmed.length <= maxLength;
 };
 

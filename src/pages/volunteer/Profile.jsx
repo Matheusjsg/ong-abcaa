@@ -8,6 +8,52 @@ import Sidebar from '../../components/common/Sidebar';
 import Footer from '../../components/common/Footer';
 import './Profile.css';
 
+const formatPhone = (value) => {
+  const digitsOnly = value.replace(/\D/g, '').slice(0, 11);
+
+  if (digitsOnly.length <= 2) {
+    return digitsOnly ? `(${digitsOnly}` : '';
+  }
+
+  if (digitsOnly.length <= 6) {
+    return `(${digitsOnly.slice(0, 2)}) ${digitsOnly.slice(2)}`;
+  }
+
+  if (digitsOnly.length <= 10) {
+    return `(${digitsOnly.slice(0, 2)}) ${digitsOnly.slice(2, 6)}-${digitsOnly.slice(6)}`;
+  }
+
+  return `(${digitsOnly.slice(0, 2)}) ${digitsOnly.slice(2, 7)}-${digitsOnly.slice(7)}`;
+};
+
+const formatCPF = (value) => {
+  const digitsOnly = value.replace(/\D/g, '').slice(0, 11);
+
+  if (digitsOnly.length <= 3) {
+    return digitsOnly;
+  }
+
+  if (digitsOnly.length <= 6) {
+    return `${digitsOnly.slice(0, 3)}.${digitsOnly.slice(3)}`;
+  }
+
+  if (digitsOnly.length <= 9) {
+    return `${digitsOnly.slice(0, 3)}.${digitsOnly.slice(3, 6)}.${digitsOnly.slice(6)}`;
+  }
+
+  return `${digitsOnly.slice(0, 3)}.${digitsOnly.slice(3, 6)}.${digitsOnly.slice(6, 9)}-${digitsOnly.slice(9)}`;
+};
+
+const formatZipCode = (value) => {
+  const digitsOnly = value.replace(/\D/g, '').slice(0, 8);
+
+  if (digitsOnly.length <= 5) {
+    return digitsOnly;
+  }
+
+  return `${digitsOnly.slice(0, 5)}-${digitsOnly.slice(5)}`;
+};
+
 const Profile = () => {
   const { token, user } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -28,13 +74,13 @@ const Profile = () => {
       const profile = await fetchVolunteerProfile(token);
       if (profile) {
         setFormData({
-          phone: profile.phone || '',
+          phone: profile.phone ? formatPhone(profile.phone) : '',
+          zipCode: profile.zipCode ? formatZipCode(profile.zipCode) : '',
           address: profile.address || '',
           city: profile.city || '',
           state: profile.state || '',
-          zipCode: profile.zipCode || '',
           birthDate: profile.birthDate ? profile.birthDate.slice(0, 10) : '',
-          cpf: profile.cpf || ''
+          cpf: profile.cpf ? formatCPF(profile.cpf) : ''
         });
       }
     } catch (error) {
@@ -50,7 +96,13 @@ const Profile = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    let formattedValue = value;
+
+    if (name === 'phone') formattedValue = formatPhone(value);
+    if (name === 'cpf') formattedValue = formatCPF(value);
+    if (name === 'zipCode') formattedValue = formatZipCode(value);
+
+    setFormData((prev) => ({ ...prev, [name]: formattedValue }));
   };
 
   const validateForm = () => {
@@ -82,13 +134,13 @@ const Profile = () => {
       const savedProfile = await saveVolunteerProfile(formData, token);
       if (savedProfile) {
         setFormData({
-          phone: savedProfile.phone || formData.phone || '',
+          phone: savedProfile.phone ? formatPhone(savedProfile.phone) : formData.phone || '',
+          zipCode: savedProfile.zipCode ? formatZipCode(savedProfile.zipCode) : formData.zipCode || '',
           address: savedProfile.address || formData.address || '',
           city: savedProfile.city || formData.city || '',
           state: savedProfile.state || formData.state || '',
-          zipCode: savedProfile.zipCode || formData.zipCode || '',
           birthDate: savedProfile.birthDate ? savedProfile.birthDate.slice(0, 10) : formData.birthDate || '',
-          cpf: savedProfile.cpf || formData.cpf || ''
+          cpf: savedProfile.cpf ? formatCPF(savedProfile.cpf) : formData.cpf || ''
         });
       }
       toast.success('Perfil atualizado com sucesso!');
@@ -146,7 +198,10 @@ const Profile = () => {
                     onChange={handleChange}
                     placeholder="000.000.000-00"
                     maxLength="14"
+                    inputMode="numeric"
+                    autoComplete="off"
                   />
+                  <small className="field-hint">Digite apenas os numeros que o formato e aplicado automaticamente.</small>
                 </div>
 
                 <div className="form-group">
@@ -164,13 +219,16 @@ const Profile = () => {
                 <div className="form-group">
                   <label>Telefone</label>
                   <input
-                    type="text"
+                    type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="(00) 00000-0000"
                     maxLength="15"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
                   />
+                  <small className="field-hint">Digite apenas os numeros que o formato e aplicado automaticamente.</small>
                 </div>
 
                 <div className="form-group">
@@ -182,7 +240,10 @@ const Profile = () => {
                     onChange={handleChange}
                     placeholder="00000-000"
                     maxLength="9"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
                   />
+                  <small className="field-hint">Digite apenas os numeros que o formato e aplicado automaticamente.</small>
                 </div>
               </div>
 

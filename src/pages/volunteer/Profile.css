@@ -35,6 +35,13 @@
   gap: 1.5rem;
 }
 
+.field-hint {
+  display: block;
+  margin-top: 0.4rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
