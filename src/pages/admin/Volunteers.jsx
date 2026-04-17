@@ -246,7 +246,7 @@ const Volunteers = () => {
                                       <p><strong>Email:</strong> {volunteer.email}</p>
                                       <p><strong>Telefone:</strong> {profile?.phone || '-'}</p>
                                       <p><strong>CPF:</strong> {profile?.cpf || '-'}</p>
-                                      <p><strong>Data de Nascimento:</strong> {profile?.birthDate ? new Date(profile.birthDate).toLocaleDateString('pt-BR') : '-'}</p>
+                                      <p><strong>Data de Nascimento:</strong> {profile?.birthDate ? (() => { const [y, m, d] = profile.birthDate.split('-'); return new Date(y, m - 1, d).toLocaleDateString('pt-BR'); })() : '-'}</p>
                                     </div>
 
                                     <div className="profile-section">
