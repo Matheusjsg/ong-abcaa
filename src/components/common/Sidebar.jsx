@@ -81,13 +81,11 @@ const Sidebar = () => {
           </div>
           <h2 className="org-name">ABCAA</h2>
           <p className="org-subtitle">Amor em Ação</p>
-          <div className="user-info">
-            <div className="user-meta">
-              <p className="user-name">{displayName}</p>
-              <span className={`badge ${isAdmin() ? 'badge-admin' : 'badge-volunteer'}`}>
-                {isAdmin() ? 'Admin' : 'Voluntário'}
-              </span>
-            </div>
+          <div className="user-meta">
+            <p className="user-name">{displayName}</p>
+            <span className={`badge ${isAdmin() ? 'badge-admin' : 'badge-volunteer'}`}>
+              {isAdmin() ? 'Admin' : 'Voluntário'}
+            </span>
           </div>
         </div>
 
