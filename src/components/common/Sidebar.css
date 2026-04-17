@@ -139,16 +139,16 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(62, 82, 195, 0.25);
 }
 
 .badge-admin {
-  background: rgba(244, 114, 182, 0.3);
+  background: rgba(233, 23, 132, 0.781);
   color: #fff1f7;
 }
 
 .badge-volunteer {
-  background: rgba(191, 219, 254, 0.2);
+  background: rgba(81, 153, 241, 0.781);
   color: #eff6ff;
 }
 

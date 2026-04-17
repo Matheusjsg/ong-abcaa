@@ -1,6 +1,7 @@
 import { useAuth } from '../../context/AuthContext';
 import Sidebar from '../../components/common/Sidebar';
 import Footer from '../../components/common/Footer';
+import RankingChart from '../../components/common/RankingChart';
 import '../volunteer/Dashboard.css';
 
 const AdminDashboard = () => {
@@ -63,6 +64,8 @@ const AdminDashboard = () => {
             </a>
           </div>
         </div>
+
+        <RankingChart baseRoute="/admin" />
       </div>
       <Footer />
     </div>

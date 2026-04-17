@@ -127,14 +127,7 @@ const Sidebar = () => {
             <span>Meus Relatórios</span>
           </Link>
 
-          {/* Ranking */}
-          <Link
-            to={`${baseRoute}/ranking`}
-            className={`nav-item ${isActive(`${baseRoute}/ranking`) ? 'active' : ''}`}
-          >
-            <Trophy size={20} />
-            <span>Ranking</span>
-          </Link>
+         
 
           {/* Separador - Apenas para Admin */}
           {isAdmin() && <div className="nav-separator">Administração</div>}
@@ -170,6 +163,18 @@ const Sidebar = () => {
               <Briefcase size={20} />
               <span>Setores</span>
             </Link>
+          )}
+
+          {/* Ranking */}
+
+          {isAdmin() && (
+          <Link
+            to={`${baseRoute}/ranking`}
+            className={`nav-item ${isActive(`${baseRoute}/ranking`) ? 'active' : ''}`}
+          >
+            <Trophy size={20} />
+            <span>Ranking</span>
+          </Link>
           )}
         </nav>
 

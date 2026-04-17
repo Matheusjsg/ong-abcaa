@@ -2,6 +2,7 @@ import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/common/Sidebar';
 import Footer from '../../components/common/Footer';
+import RankingChart from '../../components/common/RankingChart';
 import './Dashboard.css';
 
 const VolunteerDashboard = () => {
@@ -55,6 +56,8 @@ const VolunteerDashboard = () => {
             </Link>
           </div>
         </div>
+
+        <RankingChart baseRoute="/volunteer" />
       </div>
       <Footer />
     </div>
