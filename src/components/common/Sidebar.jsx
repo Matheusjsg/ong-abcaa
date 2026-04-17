@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { 
-  LayoutDashboard, 
-  User, 
-  Activity, 
-  FileText, 
-  Users, 
-  CheckSquare, 
-  Briefcase, 
+import {
+  LayoutDashboard,
+  User,
+  Activity,
+  FileText,
+  Users,
+  CheckSquare,
+  Briefcase,
   LogOut,
   Menu,
-  X
+  X,
+  Trophy
 } from 'lucide-react';
 import logo from '../../assets/logo.png';
 import './Sidebar.css';
@@ -120,12 +121,21 @@ const Sidebar = () => {
           </Link>
 
           {/* Meus Relatórios */}
-          <Link 
-            to={`${baseRoute}/reports`} 
+          <Link
+            to={`${baseRoute}/reports`}
             className={`nav-item ${isActive(`${baseRoute}/reports`) ? 'active' : ''}`}
           >
             <FileText size={20} />
             <span>Meus Relatórios</span>
+          </Link>
+
+          {/* Ranking */}
+          <Link
+            to={`${baseRoute}/ranking`}
+            className={`nav-item ${isActive(`${baseRoute}/ranking`) ? 'active' : ''}`}
+          >
+            <Trophy size={20} />
+            <span>Ranking</span>
           </Link>
 
           {/* Separador - Apenas para Admin */}

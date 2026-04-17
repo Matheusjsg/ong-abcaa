@@ -45,6 +45,15 @@ const VolunteerDashboard = () => {
               Acessar →
             </Link>
           </div>
+
+          <div className="dashboard-card">
+            <div className="card-icon">🏆</div>
+            <h3>Ranking</h3>
+            <p>Veja os voluntários com mais horas aprovadas</p>
+            <Link to="/volunteer/ranking" className="card-link">
+              Acessar →
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />

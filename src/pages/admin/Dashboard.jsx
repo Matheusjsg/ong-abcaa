@@ -53,6 +53,15 @@ const AdminDashboard = () => {
               Acessar →
             </a>
           </div>
+
+          <div className="dashboard-card">
+            <div className="card-icon">🏆</div>
+            <h3>Ranking</h3>
+            <p>Voluntários com mais horas aprovadas</p>
+            <a href="/admin/ranking" className="card-link">
+              Acessar →
+            </a>
+          </div>
         </div>
       </div>
       <Footer />
