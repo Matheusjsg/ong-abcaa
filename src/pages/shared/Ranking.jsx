@@ -54,6 +54,11 @@ const Ranking = () => {
     loadRanking('', '');
   };
 
+  const shortName = (name) => {
+  const parts = name?.trim()?.split(/\s+/).filter(Boolean) || [];
+  return parts.length <= 1 ? parts[0] || '' : `${parts[0]} ${parts[parts.length - 1]}`;
+};
+
   return (
     <div className="container">
       <Sidebar />
@@ -133,10 +138,12 @@ const Ranking = () => {
                           <span className="rank-badge">
                             {item.rank <= 3 ? MEDAL[item.rank - 1] : `${item.rank}º`}
                           </span>
-                        </td>
+                        </td> 
+                        
                         <td>
-                          <strong>{item.volunteerName}</strong>
-                        </td>
+                          <strong>{shortName(item.volunteerName)}</strong>  
+                      </td>
+                                            
                         <td>{item.department}</td>
                         <td className="col-num">
                           <span className="hours-badge">
